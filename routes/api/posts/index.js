@@ -1,31 +1,24 @@
 const express = require("express");
+const Exceptions = require("../../utils");
 const PostDataSource = require("../../../datasources/posts.datasource");
 const router = express.Router();
 
 const post = new PostDataSource();
+const exceptions = new Exceptions();
 const { client } = require("../../../datasources/redis");
 const redis_server = client();
 
 //  api/posts
 router.get("/", async (req, res) => {
   try {
-    const { tags, sortBy = "id", direction = "desc" } = req.query;
+    const { tags, sortBy = "id", direction = "asc" } = req.query;
 
     if (!tags) {
-      return res
-        .status("400")
-        .send("An error has occured: tags field missing!");
+      throw new Error("Tags param missing!");
     }
 
-    if (
-      sortBy &&
-      direction &&
-      (typeof sortBy != "string" || typeof direction != "string")
-    ) {
-      return res
-        .status("400")
-        .send("An error has occured: syntax error on query params!");
-    }
+    //handle valid QueryParams
+    exceptions.handleQueryParams(sortBy, direction);
 
     redis_server.get(tags, async (err, POSTS) => {
       if (err) console.error("REDIS-SERVER-ERROR");
@@ -47,7 +40,7 @@ router.get("/", async (req, res) => {
     res
       .status(400)
       .json(
-        `An error has occured: '${err.message}'. We have been notified and will fix the issue shortly!`,
+        `An error has occured: '${err.message}'. We have been notified and will fix the issue shortly!`
       );
   }
 });
