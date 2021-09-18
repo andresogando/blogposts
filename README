@@ -1,19 +1,35 @@
+## README
+
+Hey Reviewer, 
+
+So I started this assignment like 2 days and finished today Sat 18 2021, this was a nice challenging test, thanks for the opportunity! 
+
+## How to run? 
+ 
+1. Open your Terminal & Run command ' Yarn ' to install all the dependencies. 
+2. Install Redis https://redis.io/download
+3. After Installing Redis run: redis-server
+4. Run this command to start the server ' Yarn dev ' 
+5. Run this command to test the server ' Yarn test '
+6. Enjoy & call me to join the team =) 
+
+
+
 
 ## Rubric 
 https://drive.google.com/file/d/1f0jiSVTTGtAn8XbHwHcTqPEU-BT4-q6x/view
 
 ## Checklist
-Checklist
 Before submitting your assessment, make sure you have:
-❏ An /api/posts route that handles the following query parameters:
-❏ tags (mandatory) : any number of comma-separated strings
-❏ sortBy (optional) : one of “id”, “reads”, “likes”, “popularity”
-❏ direction (optional) : one of “asc”, “desc”, defaults to “asc”
-❏ Error handling: Return an error message if:
-❏ tags parameter is missing
-❏ sortBy or direction has an invalid value
-❏ Testing without using our solution API route
-❏ Caching (bonus)
+>  An /api/posts route that handles the following query parameters:
+>  tags (mandatory) : any number of comma-separated strings
+>  sortBy (optional) : one of “id”, “reads”, “likes”, “popularity”
+>  direction (optional) : one of “asc”, “desc”, defaults to “asc”
+>  Error handling: Return an error message if:
+>  tags parameter is missing
+>  sortBy or direction has an invalid value
+>  Testing without using our solution API route
+>  Caching (bonus)
 
 
-yarn prettier --write .
+
