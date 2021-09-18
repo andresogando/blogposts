@@ -1,35 +1,79 @@
 ## README
 
-Hey Reviewer, 
+Hey Reviewer,
 
-So I started this assignment like 2 days and finished today Sat 18 2021, this was a nice challenging test, thanks for the opportunity! 
+So I started this assignment like 2 days and finished today Sat 18 2021, this was a nice challenging test, thanks for the opportunity!
 
-## How to run? 
- 
-1. Open your Terminal & Run command ' Yarn ' to install all the dependencies. 
+## How to run?
+
+1. Open your Terminal & Run command ' Yarn ' to install all the dependencies.
 2. Install Redis https://redis.io/download
 3. After Installing Redis run: redis-server
-4. Run this command to start the server ' Yarn dev ' 
+4. Run this command to start the server ' Yarn dev '
 5. Run this command to test the server ' Yarn test '
-6. Enjoy & call me to join the team =) 
+6. Enjoy & call me to join the team =)
 
+## PORTS
 
+REDIS_PORT = 6379
+SERVER_PORT = 3001 || 3002
 
+## Rubric
 
-## Rubric 
 https://drive.google.com/file/d/1f0jiSVTTGtAn8XbHwHcTqPEU-BT4-q6x/view
 
 ## Checklist
+
 Before submitting your assessment, make sure you have:
->  An /api/posts route that handles the following query parameters:
->  tags (mandatory) : any number of comma-separated strings
->  sortBy (optional) : one of “id”, “reads”, “likes”, “popularity”
->  direction (optional) : one of “asc”, “desc”, defaults to “asc”
->  Error handling: Return an error message if:
->  tags parameter is missing
->  sortBy or direction has an invalid value
->  Testing without using our solution API route
->  Caching (bonus)
 
+> An /api/posts route that handles the following query parameters:
+> tags (mandatory) : any number of comma-separated strings
+> sortBy (optional) : one of “id”, “reads”, “likes”, “popularity”
+> direction (optional) : one of “asc”, “desc”, defaults to “asc”
+> Error handling: Return an error message if:
+> tags parameter is missing
+> sortBy or direction has an invalid value
+> Testing without using our solution API route
+> Caching (bonus)
 
+## INFO
 
+> I will attach a screenshot of my private Git Repo the one I used to complete this task.
+> This repo is completely private just for my personal use, not intended to share with anyone.
+
+## FOLDER STRUCTURE
+
+.
+├── README
+├── Screen\ Shot\ 2021-09-18\ at\ 2.54.53\ PM.png
+├── app.js
+├── bin
+│ └── www.js
+├── datasources
+│ ├── posts.datasource.js
+│ └── redis.js
+├── package.json
+├── public
+│ ├── images
+│ ├── javascripts
+│ └── stylesheets
+│ └── style.css
+├── routes
+│ ├── api
+│ │ ├── ping
+│ │ │ └── index.js
+│ │ └── posts
+│ │ └── index.js
+│ └── index.js
+├── test
+│ ├── ping.test.js
+│ └── posts.test.js
+├── utils
+│ └── index.js
+├── views
+│ ├── error.jade
+│ ├── index.jade
+│ └── layout.jade
+└── yarn.lock
+
+13 directories, 18 files

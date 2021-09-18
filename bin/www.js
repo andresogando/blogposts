@@ -22,7 +22,7 @@ redis_server.on("error", (err) => console.error("REDIS-SERVER", err));
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || "3000");
+const port = normalizePort(process.env.SERVER_PORT || "3002");
 app.set("port", port);
 
 /**

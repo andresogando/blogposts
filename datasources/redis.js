@@ -3,7 +3,4 @@ module.exports = {
   client: function () {
     return redis.createClient();
   },
-
-  
-
 };
