@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Route Paths
 app.use("/", require("./routes/index"));
-app.use("/api", require("./routes/api/ping"));
+app.use("/api/ping", require("./routes/api/ping"));
 app.use("/api/posts", require("./routes/api/posts"));
 
 // catch 404 and forward to error handler

@@ -14,3 +14,6 @@ Before submitting your assessment, make sure you have:
 ❏ sortBy or direction has an invalid value
 ❏ Testing without using our solution API route
 ❏ Caching (bonus)
+
+
+yarn prettier --write .

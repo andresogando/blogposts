@@ -36,23 +36,23 @@ module.exports = class PostDataSource {
             console.warn("error:", err);
             reject(err);
           }
-        }),
+        })
       );
     }
   }
 
   // Fetch posts by tags
   async getPostsByTags(tag, sortBy, direction) {
-    const _createPromises = await this.createPromises(tag, sortBy, direction);
+    const createPromises = await this.createPromises(tag, sortBy, direction);
     const data = [];
 
-    // console.log(this.promiseArray);
-
+    //parallel request
     await Promise.all(this.promiseArray).then((res) => data.push(...res));
 
     //clear duplicates values.
-    const newData = this.clearDuplicates(data);
+    const newData = this.clearDuplicates(...data);
 
+    //return clean array
     return newData;
   }
 

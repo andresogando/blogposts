@@ -1,5 +1,5 @@
 const express = require("express");
-const Exceptions = require("../../utils");
+const Exceptions = require("../../../utils");
 const PostDataSource = require("../../../datasources/posts.datasource");
 const router = express.Router();
 
@@ -20,19 +20,14 @@ router.get("/", async (req, res) => {
     //handle valid QueryParams
     exceptions.handleQueryParams(sortBy, direction);
 
-    redis_server.get(tags, async (err, POSTS) => {
+    redis_server.get(tags, async (err, Posts) => {
       if (err) console.error("REDIS-SERVER-ERROR");
-      if (POSTS) {
-        res.status(200).send({
-          POSTS: JSON.parse(POSTS),
-          message: "Data From Cache",
-        });
-        console.log(POSTS);
+      if (Posts) {
+        res.status(200).send({ Posts: JSON.parse(Posts) });
       } else {
-        const POSTS = await post.getPosts(tags, sortBy, direction);
-        redis_server.set(tags, JSON.stringify(POSTS));
-        console.log(POSTS);
-        res.status(200).send(POSTS);
+        const Posts = await post.getPosts(tags, sortBy, direction);
+        redis_server.set(tags, JSON.stringify(Posts));
+        res.status(200).send({ Posts });
       }
     });
   } catch (err) {
